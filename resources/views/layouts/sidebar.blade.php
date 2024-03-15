@@ -5,6 +5,9 @@
              class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
     </a>
+    <a href="{{ route('barang') }}" class="brand-link">
+
+    </a>
 
     <div class="sidebar">
         <nav class="mt-2">
