@@ -22,22 +22,22 @@ class BarangController extends Controller
     {
         $input = $request->all();
         $barang = Barang::create($input);
-        return redirect('barang.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect('/barang/index')->with('success', 'Data Berhasil Disimpan');
     }
     public function edit(Barang $barang)
     {
-        return view('barang.create');
+        return view('barang.create', compact('barang'));
     }
     public function update(Barang $barang, Request $request)
     {
         $input = $request->all();
         $barang->update($input);
-        return redirect(to: 'barang.index')->with('success', 'Data Berhasil Diupdate');
+        return redirect(to: '/barang/index')->with('success', 'Data Berhasil Diupdate');
     }
     public function destroy($id)
     {
         $data = Barang::find($id);
         $data->delete();
-        return redirect('barang.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect('/barang/index')->with('success', 'Data Berhasil Dihapus');
     }
 }

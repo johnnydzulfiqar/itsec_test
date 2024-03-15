@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('barang', BarangController::class);
-
+Route::get('/barang/index', [BarangController::class, 'index'])->name('barang.index');
+Route::get('/barang/create', [BarangController::class, 'create'])->name('barang.create');
+Route::post('/barang/create', [BarangController::class, 'store']);
+Route::get('/barang/{barang}/edit', [BarangController::class, 'edit'])->name(name: 'barang.edit');
+Route::patch('/barang/{barang}', [BarangController::class, 'update'])->name(name: 'barang.update');
+Route::delete('/barang/{barang}', [BarangController::class, 'destroy'])->name(name: 'barang.delete');
 Auth::routes();
